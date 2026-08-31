@@ -1,3 +1,4 @@
+const http = require('http');
 const { Client, GatewayIntentBits, Events } = require('discord.js');
 const { token } = require('./config');
 const { LobbyManager } = require('./LobbyManager');
@@ -107,6 +108,11 @@ client.on(Events.InteractionCreate, async (interaction) => {
   } catch (error) {
     console.error('[Interaction] unhandled error:', error.message);
   }
+});
+
+const PORT = process.env.PORT || 10000;
+http.createServer((req, res) => res.end('Bot is alive!')).listen(PORT, () => {
+  console.log(`Health check server listening on port ${PORT}`);
 });
 
 client.login(token);
