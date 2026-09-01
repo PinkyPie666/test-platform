@@ -1,6 +1,6 @@
 services:
-  - type: worker
-    name: test-platform-worker
+  - type: web
+    name: test-platform
     env: node
     buildCommand: npm install
     startCommand: node src/index.js
