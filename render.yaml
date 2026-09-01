@@ -1,0 +1,7 @@
+services:
+  - type: worker
+    name: test-platform-worker
+    env: node
+    buildCommand: npm install
+    startCommand: node src/index.js
+    plan: free
